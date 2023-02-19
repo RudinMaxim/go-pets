@@ -1,4 +1,4 @@
-# server-cats
+# server-pets
 
 go mod init cats-server
 go get -u github.com/gin-gonic/gin
