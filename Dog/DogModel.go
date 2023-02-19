@@ -68,15 +68,15 @@ func UpdateDog(dog Dog) Dog {
 	oldDog := FindDogById(dog.id)
 
 	oldDog.Name = dog.Name
-	oldDog.Color = dog.Color
 	oldDog.Breed = dog.Breed
+	oldDog.Color = dog.Color
 	oldDog.ear_length = dog.ear_length
 
 	_, err := pgConnect.Model(&oldDog).
 		Set("name = ?", oldDog.Name).
-		Set("ear_length = ?", oldDog.ear_length).
-		Set("Breed = ?", oldDog.Breed).
+		Set("breed = ?", oldDog.Breed).
 		Set("color = ?", oldDog.Color).
+		Set("ear_length = ?", oldDog.ear_length).
 		Where("id = ?", oldDog.ID).
 		Update()
 	if err != nil {
